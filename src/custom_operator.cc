@@ -47,11 +47,11 @@ struct MyCustomOp : Ort::CustomOpBase<MyCustomOp, MyCustomKernel> {
   };
 
   // Returns the name of the custom operator.
-  const char *GetName() const { return "MyCustomOp"; };
+  const char *GetName() const { return "awml_pred:TRTKnnBatchMlogK(-1)"; };
 
   // Returns the custom operator's execution provider.
   const char *GetExecutionProviderType() const {
-    return "CPUExecutionProvider";
+    return "GPUExecutionProvider";
   };
 
   // Returns the number of inputs.
