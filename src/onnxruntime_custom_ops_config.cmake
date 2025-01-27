@@ -1,0 +1,2 @@
+set(CUSTOM_OP_LIBRARY_NAME "custom_op")
+set(CUSTOM_OP_SHARED_LIBRARY "${CMAKE_CURRENT_BINARY_DIR}/libcustom_op.so")
