@@ -1,9 +1,17 @@
-#ifndef CUSTOM_OP_H
-#define CUSTOM_OP_H
+#pragma once
+#include "onnxruntime_c_api.h"
 
-#include "onnxruntime_cxx_api.h"
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-struct CustomOpKernel;
-struct CustomOp;
+ORT_EXPORT OrtStatus *ORT_API_CALL RegisterCustomOps(OrtSessionOptions *options,
+                                                     const OrtApiBase *api);
 
-#endif // CUSTOM_OP_H
+// alternative name to test registration by function name
+ORT_EXPORT OrtStatus *ORT_API_CALL
+RegisterCustomOpsAltName(OrtSessionOptions *options, const OrtApiBase *api);
+
+#ifdef __cplusplus
+}
+#endif
