@@ -47,7 +47,7 @@ struct MyCustomOp : Ort::CustomOpBase<MyCustomOp, MyCustomKernel> {
   };
 
   // Returns the name of the custom operator.
-  const char *GetName() const { return "TRTKnnBatchMlogK"; };
+  const char *GetName() const { return "CustomOpName"; };
 
   // Returns the custom operator's execution provider.
   const char *GetExecutionProviderType() const {
@@ -95,8 +95,8 @@ OrtStatus *ORT_API_CALL RegisterCustomOps(OrtSessionOptions *options,
   OrtStatus *result = nullptr;
 
   try {
-    Ort::CustomOpDomain domain{"awml_pred"};
-    domain.Add(&my_custom_op);
+    Ort::CustomOpDomain domain{"DomainName"};
+    domain.Add(&my_custom_op); // exports custom op as "DomainName:CustomOpName"
 
     Ort::UnownedSessionOptions session_options(options);
     session_options.Add(domain);
